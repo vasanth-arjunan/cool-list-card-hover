@@ -1,0 +1,82 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    background-color: #1a1d24;
+    height: 100vh;
+    width: 100vw;
+    padding: 60px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    gap: 5px;
+    transform-style: preserve-3d;
+    transform: perspective(1800px);
+}
+
+li {
+    filter: brightness(0.1);
+    transition: all 300ms cubic-bezier(.78, .67, .88, .86);
+    aspect-ratio: 200/380;
+    width: 11.11%;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+li:hover {
+    filter: brightness(1);
+    transform: translateZ(220px);
+    box-shadow: 0px 0px 50px 0px #ffffff2b;
+}
+
+/* select the cards on the right */
+ul li:hover+* {
+    filter: brightness(0.5);
+    transform: translateZ(140px) rotateY(30deg);
+}
+
+ul li:hover+*+* {
+    filter: brightness(0.3);
+    transform: translateZ(60px) rotateY(20deg);
+}
+
+ul li:hover+*+*+* {
+    filter: brightness(0.2);
+    transform: translateZ(20px) rotateY(10deg);
+}
+
+/* select the cards on the left */
+
+ul li:has(+*:hover) {
+    filter: brightness(0.5);
+    transform: translateZ(140px) rotateY(-30deg);
+}
+
+ul li:has(+*+*:hover) {
+    filter: brightness(0.3);
+    transform: translateZ(60px) rotateY(-20deg);
+}
+
+ul li:has(+*+*+*:hover) {
+    filter: brightness(0.2);
+    transform: translateZ(20px) rotateY(-10deg);
+}
