@@ -30,6 +30,8 @@ ul {
     gap: 5px;
     transform-style: preserve-3d;
     transform: perspective(1800px);
+    max-width: 85vw;
+    margin-inline: auto;
 }
 
 li {
